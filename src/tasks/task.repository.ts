@@ -6,9 +6,8 @@ import { Task } from './task.entity';
 
 @EntityRepository(Task)
 export class TaskRepository extends Repository<Task> {
-
   async getTask(filterDto: GettaskFilterDto): Promise<Task[]> {
-    const { status, search } = filterDto;  
+    const { status, search } = filterDto;
     const query = this.createQueryBuilder('task');
 
     if (status) {
